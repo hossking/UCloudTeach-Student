@@ -13,29 +13,56 @@
       <div v-if="courseMap.has(grade.id) && courseMap.get(grade.id).length!==0">
         <van-cell v-for="course in courseMap.get(grade.id)" :key="course.id">
           <div v-show="selectSubject===0 || selectSubject===course.subjectId">
-            <router-link :to="'/course/content?courseId='+course.id" @click="toCourseHandle(course)">
-              <van-card
-                :desc="course.totalPeriod+'课时\t'+course.totalMember+'人在学'"
-                style="--van-card-thumb-border-radius:3px;--van-card-thumb-size:110px;background-color: white;--van-card-desc-color:#989898"
-              >
-                <template #price>
-                  <label style="color:#ee0a24;font-size:12px">¥{{course.price}}</label>
-                </template>
-                <template #footer>
-                  <label style="font-size:12px;color:gray">讲师：{{course.teacher}}</label>
-                </template>
-                <template #thumb>
-                  <img :src="course.cover" alt="" style="height: 80px;width: 106px"/>
-                </template>
-                <template #title>
-                  <label style="font-size:15px;">{{ course.name }}</label>
-                </template>
-                <template #tags>
-                  <van-tag plain type="danger">推荐</van-tag>
-                  <br/>
-                </template>
-              </van-card>
-            </router-link>
+            <div v-if="course.type === false">
+              <router-link :to="'/course/content?courseId='+course.id" @click="toCourseHandle(course)">
+                <van-card
+                  :desc="course.totalPeriod+'课时\t'+course.totalMember+'人在学'"
+                  style="--van-card-thumb-border-radius:3px;--van-card-thumb-size:110px;background-color: white;--van-card-desc-color:#989898"
+                >
+                  <template #price>
+                    <label style="color:#ee0a24;font-size:12px">¥{{course.price}}</label>
+                  </template>
+                  <template #footer>
+                    <label style="font-size:12px;color:gray">讲师：{{course.teacher}}</label>
+                  </template>
+                  <template #thumb>
+                    <img :src="course.cover" alt="" style="height: 80px;width: 106px"/>
+                  </template>
+                  <template #title>
+                    <label style="font-size:15px;">{{ course.name }}</label>
+                  </template>
+                  <template #tags>
+                    <van-tag plain type="danger">推荐</van-tag>
+                    <br/>
+                  </template>
+                </van-card>
+              </router-link>
+            </div>
+            <div v-else>
+              <router-link :to="'/live/content?courseId='+course.id" @click="toCourseHandle(course)">
+                <van-card
+                  :desc="course.totalPeriod+'课时\t'+course.totalMember+'人在学'"
+                  style="--van-card-thumb-border-radius:3px;--van-card-thumb-size:110px;background-color: white;--van-card-desc-color:#989898"
+                >
+                  <template #price>
+                    <label style="color:#ee0a24;font-size:12px">¥{{course.price}}</label>
+                  </template>
+                  <template #footer>
+                    <label style="font-size:12px;color:gray">讲师：{{course.teacher}}</label>
+                  </template>
+                  <template #thumb>
+                    <img :src="course.cover" alt="" style="height: 80px;width: 106px"/>
+                  </template>
+                  <template #title>
+                    <label style="font-size:15px;">{{ course.name }}</label>
+                  </template>
+                  <template #tags>
+                    <van-tag plain type="danger">推荐</van-tag>
+                    <br/>
+                  </template>
+                </van-card>
+              </router-link>
+            </div>
           </div>
         </van-cell>
       </div>
