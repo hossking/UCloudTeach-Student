@@ -43,7 +43,7 @@
 
 ### 使用说明
 
-1.  克隆本仓库：git clone https://gitee.com/h0ss/ucloud-teach-student.git
+1.  克隆本仓库：git clone https://github.com/hossking/UCloudTeach-Student.git
 2.  安装依赖：npm install
 3.  运行项目：yarn run serve-dev
 4.  确保后端项目已启动，修改.env.dev文件中的地址与端口信息
